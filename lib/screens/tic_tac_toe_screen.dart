@@ -64,7 +64,9 @@ class _GamePageState extends State<GamePage> {
                   crossAxisCount: 3),
               itemBuilder: ((context, index) {
                 return InkWell(
-                  onTap: () => onMarking(index),
+                  onTap: () => (playerSymbolList![index] == "")
+                      ? onMarking(index)
+                      : null,
                   child: Container(
                     decoration: BoxDecoration(border: Border.all()),
                     child: Center(
