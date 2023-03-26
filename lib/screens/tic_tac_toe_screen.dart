@@ -265,17 +265,19 @@ class _GamePageState extends State<GamePage> {
     }
 
     if (((playerSymbolList![0] == computerMark &&
-                playerSymbolList![2] == computerMark) ||
+                playerSymbolList![6] == computerMark) ||
             (playerSymbolList![4] == computerMark &&
                 playerSymbolList![5] == computerMark)) &&
         playerSymbolList![3] == "") {
+         
       playerSymbolList![3] = computerMark;
       return;
     } else if (((playerSymbolList![0] == userMark &&
-                playerSymbolList![2] == userMark) ||
+                playerSymbolList![6] == userMark) ||
             (playerSymbolList![4] == userMark &&
                 playerSymbolList![5] == userMark)) &&
         playerSymbolList![3] == "") {
+       
       playerSymbolList![3] = computerMark;
       return;
     }
