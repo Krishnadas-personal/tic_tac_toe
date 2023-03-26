@@ -47,8 +47,6 @@ class _GamePageState extends State<GamePage> {
   }
 
   int playerPlayedBox = 0;
-  bool user = true;
-  List? computerSymbol;
   String? userMark;
   String? computerMark;
   List? playerSymbolList = ["", "", "", "", "", "", "", "", ""];
@@ -113,7 +111,8 @@ class _GamePageState extends State<GamePage> {
       print(playerSymbolList?.length);
       if (playerSymbolList!.isNotEmpty) {
         print("computerMark");
-        _computerPlaying();
+        // _computerPlaying();
+        _aiPlaying();
       }
       playerPlayedBox++;
       print("$playerPlayedBox playerPlayedBox");
@@ -138,7 +137,6 @@ class _GamePageState extends State<GamePage> {
         playerSymbolList![6] != '') {
       showingMessage(playerSymbolList![6]);
     }
-
     //column
     if (playerSymbolList![0] == playerSymbolList![3] &&
         playerSymbolList![0] == playerSymbolList![6] &&
@@ -168,299 +166,6 @@ class _GamePageState extends State<GamePage> {
       showingMessage(playerSymbolList![2]);
     } else if (playerPlayedBox == 5) {
       showingMessage("Its a Draw");
-    }
-  }
-
-  _computerPlaying() {
-    //rows
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![1] == computerMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![1] == userMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![2] == computerMark &&
-        playerSymbolList![1] == '') {
-      playerSymbolList![1] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![2] == userMark &&
-        playerSymbolList![1] == '') {
-      playerSymbolList![1] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![1] == computerMark &&
-        playerSymbolList![2] == computerMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    } else if (playerSymbolList![1] == userMark &&
-        playerSymbolList![2] == userMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![3] == computerMark &&
-        playerSymbolList![4] == computerMark &&
-        playerSymbolList![5] == '') {
-      playerSymbolList![5] = computerMark;
-      return;
-    } else if (playerSymbolList![3] == userMark &&
-        playerSymbolList![4] == userMark &&
-        playerSymbolList![5] == '') {
-      playerSymbolList![5] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![3] == computerMark &&
-        playerSymbolList![5] == computerMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    } else if (playerSymbolList![3] == userMark &&
-        playerSymbolList![5] == userMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![4] == computerMark &&
-        playerSymbolList![5] == computerMark &&
-        playerSymbolList![3] == '') {
-      playerSymbolList![3] = computerMark;
-      return;
-    } else if (playerSymbolList![4] == userMark &&
-        playerSymbolList![5] == userMark &&
-        playerSymbolList![3] == '') {
-      playerSymbolList![3] = computerMark;
-      return;
-    }
-    if (playerSymbolList![6] == computerMark &&
-        playerSymbolList![7] == computerMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    } else if (playerSymbolList![6] == userMark &&
-        playerSymbolList![7] == userMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    }
-    if (playerSymbolList![6] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![7] == '') {
-      playerSymbolList![7] = computerMark;
-      return;
-    } else if (playerSymbolList![6] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![7] == '') {
-      playerSymbolList![7] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![7] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    } else if (playerSymbolList![7] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    }
-//column
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![3] == computerMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![3] == userMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    }
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![6] == computerMark &&
-        playerSymbolList![3] == '') {
-      playerSymbolList![3] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![6] == userMark &&
-        playerSymbolList![3] == '') {
-      playerSymbolList![3] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![3] == computerMark &&
-        playerSymbolList![6] == computerMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    } else if (playerSymbolList![3] == userMark &&
-        playerSymbolList![6] == userMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![1] == computerMark &&
-        playerSymbolList![4] == computerMark &&
-        playerSymbolList![7] == '') {
-      playerSymbolList![7] = computerMark;
-      return;
-    } else if (playerSymbolList![1] == userMark &&
-        playerSymbolList![4] == userMark &&
-        playerSymbolList![7] == '') {
-      playerSymbolList![7] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![1] == computerMark &&
-        playerSymbolList![7] == computerMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    } else if (playerSymbolList![1] == userMark &&
-        playerSymbolList![7] == userMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![4] == computerMark &&
-        playerSymbolList![7] == computerMark &&
-        playerSymbolList![1] == '') {
-      playerSymbolList![1] = computerMark;
-      return;
-    } else if (playerSymbolList![4] == userMark &&
-        playerSymbolList![7] == userMark &&
-        playerSymbolList![1] == '') {
-      playerSymbolList![1] = computerMark;
-      return;
-    }
-    if (playerSymbolList![2] == computerMark &&
-        playerSymbolList![5] == computerMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    } else if (playerSymbolList![2] == userMark &&
-        playerSymbolList![5] == userMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    }
-    if (playerSymbolList![2] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![5] == '') {
-      playerSymbolList![5] = computerMark;
-      return;
-    } else if (playerSymbolList![2] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![5] == '') {
-      playerSymbolList![5] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![5] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    } else if (playerSymbolList![5] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    }
-
-    //dia
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![4] == computerMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![4] == userMark &&
-        playerSymbolList![8] == '') {
-      playerSymbolList![8] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![0] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    } else if (playerSymbolList![0] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![4] == computerMark &&
-        playerSymbolList![8] == computerMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    } else if (playerSymbolList![4] == userMark &&
-        playerSymbolList![8] == userMark &&
-        playerSymbolList![0] == '') {
-      playerSymbolList![0] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![2] == computerMark &&
-        playerSymbolList![4] == computerMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    } else if (playerSymbolList![2] == userMark &&
-        playerSymbolList![4] == userMark &&
-        playerSymbolList![6] == '') {
-      playerSymbolList![6] = computerMark;
-      return;
-    }
-
-    if (playerSymbolList![2] == computerMark &&
-        playerSymbolList![6] == computerMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    } else if (playerSymbolList![2] == userMark &&
-        playerSymbolList![6] == userMark &&
-        playerSymbolList![4] == '') {
-      playerSymbolList![4] = computerMark;
-      return;
-    }
-    if (playerSymbolList![4] == computerMark &&
-        playerSymbolList![6] == computerMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    } else if (playerSymbolList![4] == userMark &&
-        playerSymbolList![6] == userMark &&
-        playerSymbolList![2] == '') {
-      playerSymbolList![2] = computerMark;
-      return;
-    }
-
-    for (int i = 0; i < playerSymbolList!.length; i++) {
-      if (playerSymbolList![i] == "") {
-        playerSymbolList![i] = computerMark;
-        break;
-      }
     }
   }
 
@@ -499,5 +204,178 @@ class _GamePageState extends State<GamePage> {
         );
       },
     );
+  }
+
+  _aiPlaying() {
+    print(playerSymbolList);
+    if (((playerSymbolList![1] == computerMark &&
+                playerSymbolList![2] == computerMark) ||
+            (playerSymbolList![3] == computerMark &&
+                playerSymbolList![6] == computerMark) ||
+            (playerSymbolList![4] == computerMark &&
+                playerSymbolList![8] == computerMark)) &&
+        playerSymbolList![0] == "") {
+      playerSymbolList![0] = computerMark;
+      return;
+    } else if (((playerSymbolList![1] == userMark &&
+                playerSymbolList![2] == userMark) ||
+            (playerSymbolList![3] == userMark &&
+                playerSymbolList![6] == userMark) ||
+            (playerSymbolList![4] == userMark &&
+                playerSymbolList![8] == userMark)) &&
+        playerSymbolList![0] == "") {
+      playerSymbolList![0] = computerMark;
+      return;
+    }
+
+    if (((playerSymbolList![0] == computerMark &&
+                playerSymbolList![2] == computerMark) ||
+            (playerSymbolList![4] == computerMark &&
+                playerSymbolList![7] == computerMark)) &&
+        playerSymbolList![1] == "") {
+      playerSymbolList![1] = computerMark;
+      return;
+    } else if (((playerSymbolList![0] == userMark &&
+                playerSymbolList![2] == userMark) ||
+            (playerSymbolList![4] == userMark &&
+                playerSymbolList![7] == userMark)) &&
+        playerSymbolList![1] == "") {
+      playerSymbolList![1] = computerMark;
+      return;
+    }
+
+    if (((playerSymbolList![0] == computerMark &&
+                playerSymbolList![1] == computerMark) ||
+            (playerSymbolList![4] == computerMark &&
+                playerSymbolList![6] == computerMark) ||
+            (playerSymbolList![5] == computerMark &&
+                playerSymbolList![8] == computerMark)) &&
+        playerSymbolList![2] == "") {
+      playerSymbolList![2] = computerMark;
+      return;
+    } else if (((playerSymbolList![0] == userMark &&
+                playerSymbolList![1] == userMark) ||
+            (playerSymbolList![4] == userMark &&
+                playerSymbolList![6] == userMark) ||
+            (playerSymbolList![5] == userMark &&
+                playerSymbolList![8] == userMark)) &&
+        playerSymbolList![2] == "") {
+      playerSymbolList![2] = computerMark;
+      return;
+    }
+
+    if (((playerSymbolList![0] == computerMark &&
+                playerSymbolList![2] == computerMark) ||
+            (playerSymbolList![4] == computerMark &&
+                playerSymbolList![5] == computerMark)) &&
+        playerSymbolList![3] == "") {
+      playerSymbolList![3] = computerMark;
+      return;
+    } else if (((playerSymbolList![0] == userMark &&
+                playerSymbolList![2] == userMark) ||
+            (playerSymbolList![4] == userMark &&
+                playerSymbolList![5] == userMark)) &&
+        playerSymbolList![3] == "") {
+      playerSymbolList![3] = computerMark;
+      return;
+    }
+
+    if (((playerSymbolList![1] == computerMark &&
+                playerSymbolList![7] == computerMark) ||
+            (playerSymbolList![3] == computerMark &&
+                playerSymbolList![5] == computerMark) ||
+            (playerSymbolList![0] == computerMark &&
+                playerSymbolList![8] == computerMark)) &&
+        playerSymbolList![4] == "") {
+      playerSymbolList![4] = computerMark;
+      return;
+    } else if (((playerSymbolList![1] == userMark &&
+                playerSymbolList![7] == userMark) ||
+            (playerSymbolList![3] == userMark &&
+                playerSymbolList![5] == userMark) ||
+            (playerSymbolList![0] == userMark &&
+                playerSymbolList![8] == userMark)) &&
+        playerSymbolList![4] == "") {
+      playerSymbolList![4] = computerMark;
+      return;
+    }
+    print("object5");
+    if (((playerSymbolList![2] == computerMark &&
+                playerSymbolList![8] == computerMark) ||
+            (playerSymbolList![3] == computerMark &&
+                playerSymbolList![4] == computerMark)) &&
+        playerSymbolList![5] == "") {
+      playerSymbolList![5] = computerMark;
+      return;
+    } else if (((playerSymbolList![2] == userMark &&
+                playerSymbolList![8] == userMark) ||
+            (playerSymbolList![3] == userMark &&
+                playerSymbolList![4] == userMark)) &&
+        playerSymbolList![5] == "") {
+      playerSymbolList![5] = computerMark;
+      return;
+    }
+    print("object");
+    if (((playerSymbolList![0] == computerMark &&
+                playerSymbolList![3] == computerMark) ||
+            (playerSymbolList![2] == computerMark &&
+                playerSymbolList![4] == computerMark) ||
+            (playerSymbolList![7] == computerMark &&
+                playerSymbolList![8] == computerMark)) &&
+        playerSymbolList![6] == "") {
+      playerSymbolList![6] = computerMark;
+      return;
+    } else if (((playerSymbolList![0] == userMark &&
+                playerSymbolList![3] == userMark) ||
+            (playerSymbolList![2] == userMark &&
+                playerSymbolList![4] == userMark) ||
+            (playerSymbolList![7] == userMark &&
+                playerSymbolList![8] == userMark)) &&
+        playerSymbolList![6] == "") {
+      playerSymbolList![6] = computerMark;
+      return;
+    }
+    print("after object");
+    if (((playerSymbolList![1] == computerMark &&
+                playerSymbolList![4] == computerMark) ||
+            (playerSymbolList![6] == computerMark &&
+                playerSymbolList![8] == computerMark)) &&
+        playerSymbolList![7] == "") {
+      playerSymbolList![7] = computerMark;
+      return;
+    } else if (((playerSymbolList![1] == userMark &&
+                playerSymbolList![4] == userMark) ||
+            (playerSymbolList![6] == userMark &&
+                playerSymbolList![8] == userMark)) &&
+        playerSymbolList![7] == "") {
+      playerSymbolList![7] = computerMark;
+      return;
+    }
+
+    if (((playerSymbolList![2] == computerMark &&
+                playerSymbolList![5] == computerMark) ||
+            (playerSymbolList![0] == computerMark &&
+                playerSymbolList![4] == computerMark) ||
+            (playerSymbolList![6] == computerMark &&
+                playerSymbolList![7] == computerMark)) &&
+        playerSymbolList![8] == "") {
+      playerSymbolList![8] = computerMark;
+      return;
+    } else if (((playerSymbolList![2] == userMark &&
+                playerSymbolList![5] == userMark) ||
+            (playerSymbolList![0] == userMark &&
+                playerSymbolList![4] == userMark) ||
+            (playerSymbolList![6] == userMark &&
+                playerSymbolList![7] == userMark)) &&
+        playerSymbolList![8] == "") {
+      playerSymbolList![8] = computerMark;
+      return;
+    }
+    for (int i = 0; i < playerSymbolList!.length; i++) {
+      if (playerSymbolList![i] == "") {
+        playerSymbolList![i] = computerMark;
+        break;
+      }
+    }
   }
 }
